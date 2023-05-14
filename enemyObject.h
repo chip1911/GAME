@@ -4,7 +4,8 @@
 #include"fun.h"
 #include"LTexture.h"
 
-#define RANGE_POSX 150
+#define RANDOM_POSX_FLY 700
+#define RANDOM_POSX_CACTUS 50
 #define FLY_MAX_HEIGHT 235  
 #define RANGE_FLY_Y 75 //pham vi bay y
 
@@ -25,27 +26,25 @@ public:
 
 	void resetEnemy2();
 
-	int getPosX1();
+	int getPosX1() {return posX1;}
 
-	int getPosY1();
+	int getPosY1() {return posY1;}
 
-	int getPosX2();
+	int getPosX2() {return posX2;}
 
-	int getPosY2();
+	int getPosY2() {return posY2;}
 
 
-	// int GetWidth();
-
-	// int GetHeight();
+	
 private:
 
 	//catus
 	int posX1, posY1;
-	int e1Width, e1Height;
+	
 
 	//fly
 	int posX2, posY2;
-	int e2Width, e2Height;
+	
 
 };
 #endif

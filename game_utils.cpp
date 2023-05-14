@@ -54,25 +54,18 @@ bool checkCollisionE2(Character character, SDL_Rect* characCurrentClip, enemy en
 	int leftA = character.getPosX() + 19; //14
     int rightA = character.getPosX() + characCurrentClip->w - 20 ;//20
     int topA = character.getPosY() + 12;
-    int bottomA = character.getPosY() + characCurrentClip->h -14; //10
+    int bottomA = character.getPosY() + characCurrentClip->h -15; //10
 
     int leftB = enemy2.getPosX2() + 9;
 	int rightB = enemy2.getPosX2() + eCurrentClip->w - 1;
 	int topB = enemy2.getPosY2() + 6;
 	int bottomB = enemy2.getPosY2() + eCurrentClip->h - 1;
 
+	//SDL_HasIntersection( SDL_Rect a,  SDL_Rect b)
+
 	if(rightA >= leftB && leftA <= rightB)
 	{
-		if(topA <= bottomB && topA >= topB)
-		{
-			collide = true;
-		}
-
-		if(bottomA >= bottomB && bottomA <= topB)
-		{
-			collide = true;
-		}
-
+		
 		if(topA <= bottomB && bottomA >= topB)
 		{
 			collide = true;
@@ -138,37 +131,40 @@ void drawWhenLose(LTexture gameOver,LTexture endSelectionText, SDL_Event *e, SDL
 }						 
 
 
-std::string getHighScoreFromFile(std::string path)
+std::string getHighScore(std::string path)
 {
-	std::fstream highScoreFile;
+	std::ifstream input;
 	std::string highScore;
 
-	highScoreFile.open(path, std::ios::in);
-	highScoreFile >> highScore;
+	input.open(path);
+	input >> highScore;
 
 	return highScore;
 }
 
-void updateHighScore(std::string path, const int& score, const std::string& oldHighScore1)
+void updateHighScore(std::string path, const int& score, const std::string& oldHighScoreStringType)
 {
 	int oldHighScore = 0;
-	std::fstream highScoreFile;
+
+	std::ofstream output;
 	std::string newHighScore;
-	std::stringstream ConvertToInt(oldHighScore1);
+	std::stringstream temp(oldHighScoreStringType);
 
-	highScoreFile.open(path, std::ios::out);
+	output.open(path);
 
-	ConvertToInt >> oldHighScore;
+	temp  >> oldHighScore; // chuyen oldHighScore1 sang int 
 	if(score > oldHighScore)
 	{
 		oldHighScore = score;
 	}
 	newHighScore = std::to_string(oldHighScore);
 
-	highScoreFile << newHighScore;
+	output << newHighScore;
+	output.close();
+	
 }
 
-int updateTimeAndScore(int& time, int& speedPlus, int& score)
+int updateScoreAfterLoop(int& time, int& speedPlus, int& score)
 {
 	if(time == TIME_LIMIT )//60frame/s
 	{
@@ -271,12 +267,12 @@ void handleButtonExit(SDL_Event* e1, bool &startGame, bool &quitMenu, Mix_Chunk 
 	if(checkInsideButton(e1, buttonPosX2, buttonPosY2))
 	{
 		switch(e1->type)
-		{
+		{	
 			case SDL_MOUSEBUTTONDOWN:
-				Mix_PlayChannel(-1, gClick, 0);
-				startGame = false;
-				quitMenu = true;
-				break;
+			Mix_PlayChannel(-1, gClick, 0);
+			startGame = false;
+			quitMenu = true;
+			break;
 
 		}
 	}

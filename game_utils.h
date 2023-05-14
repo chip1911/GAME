@@ -22,11 +22,11 @@ bool checkEnemyCollision(Character character,
 						 SDL_Rect* eCurrentClip);
 void drawWhenLose(LTexture gameOver, LTexture endSelectionText,SDL_Event *e,SDL_Renderer *gRenderer, bool &startGame);	
 
-std::string getHighScoreFromFile(std::string path);
+std::string getHighScore(std::string path);
 
 void updateHighScore(std::string path, const int& score, const std::string& oldHighScore1);
 
-int updateTimeAndScore(int& time, int& speedPlus, int& score);
+int updateScoreAfterLoop(int& time, int& speedPlus, int& score);
 
 void renderScore(LTexture gScore, LTexture scoreText, SDL_Color textColor, SDL_Renderer *gRenderer, TTF_Font *gFont1, const int& score );
 void renderHighScore(LTexture gHighScore, LTexture highScoreText, SDL_Color textColor, SDL_Renderer *gRenderer, TTF_Font *gFont1, const std::string& highScore);

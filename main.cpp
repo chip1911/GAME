@@ -41,7 +41,7 @@ Character character;
 enemy enemy1;
 enemy enemy2;
 
-const std::string WINDOW_TITLE = "Dino game";
+const std::string WINDOW_TITLE = "DINO GAME";
 
 bool init()
 {
@@ -242,7 +242,7 @@ bool loadMedia()
 	}
 
 
-	gGameOver = Mix_LoadWAV("music/oh.wav");
+	gGameOver = Mix_LoadWAV("music/Cat_Meow.wav");
 	if(gGameOver == NULL)
 	{
 		std::cout << "Failed to load sound effect! SDL_mixer Error: " << Mix_GetError() << std::endl;
@@ -268,6 +268,12 @@ void close()
 	characterTexture.free();
 	enemy1Texture.free();
 	enemy2Texture.free();
+	gameOverText.free();
+	endSelectionText.free();
+	gScore.free();
+	scoreText.free() ;
+	gHighScore.free();
+	highScoreText.free();
 
 	Mix_FreeChunk(gJump);
 	Mix_FreeChunk(gGameOver);
@@ -342,7 +348,7 @@ int main( int argc, char* args[])
 				int time = 0;
 				int score = 0;
 				int speedPlus = 0;
-				std::string highScore = getHighScoreFromFile("best_score.txt");
+				std::string highScore = getHighScore("best_score.txt");
 				enemy1.resetEnemy1();
 				enemy2.resetEnemy2();
 				character.resetCharacter();
@@ -350,7 +356,7 @@ int main( int argc, char* args[])
 			
 				while( !quit)
 				{	
-					updateTimeAndScore(time, speedPlus, score);
+					updateScoreAfterLoop(time, speedPlus, score);
 					if( Mix_PlayingMusic() == 0 )
 						{
 							//Play the music

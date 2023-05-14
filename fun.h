@@ -42,7 +42,7 @@ const int buttonPosY2 = 236;
 #define ENEMY_2_HEIGHT 25
 
 #define TIME_LIMIT 900
-#define SPEED_INCREASEMENT 1.5
+#define SPEED_INCREASEMENT 1
 #define SCORE_INCREASEMENT 1
 #define TIME_INCREASEMENT 1
 
