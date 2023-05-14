@@ -12,7 +12,7 @@ public:
 
 	bool loadFromFile(std::string path, SDL_Renderer *gRenderer);
 
-	//bool loadFromRenderedText(std::string textureText, TTF_Font* gFont, SDL_Color textColor, SDL_Renderer* gRenderer);
+	bool loadFromRenderedText(std::string textureText, TTF_Font* gFont, SDL_Color textColor, SDL_Renderer* gRenderer);
 
 	void render(int x, int y, SDL_Renderer* gRenderer, SDL_Rect* clip = NULL);
 
