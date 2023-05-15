@@ -30,6 +30,7 @@ LTexture gHighScore;
 LTexture highScoreText;
 
 Mix_Music *gMusic = NULL;
+Mix_Music *gMenuMusic = NULL;
 
 Mix_Chunk *gJump = NULL;
 Mix_Chunk *gGameOver = NULL;
@@ -264,6 +265,13 @@ bool loadMedia()
 		success = false;
 	}
 
+	gMenuMusic = Mix_LoadMUS("music/menumusic.wav");
+	if(gMenuMusic == NULL)
+	{
+		std::cout << "Failed to load music! SDL_mixer Error: " << Mix_GetError() << std::endl;
+		success = false;
+	}
+
 	
 
 	return success;
@@ -292,6 +300,8 @@ void close()
 	gClick = NULL;
 
 	Mix_FreeMusic(gMusic);
+	Mix_FreeMusic(gMenuMusic);
+	gMenuMusic = NULL;
 	gMusic = NULL;
 
 	SDL_DestroyRenderer( gRenderer );
@@ -324,6 +334,7 @@ int main( int argc, char* args[])
 			bool startGame = false;
 			bool quitMenu = false;
 			SDL_Event e1;
+			Mix_PlayMusic( gMenuMusic, -1 );
 			while(!quitMenu)
 			{
 				
@@ -362,16 +373,14 @@ int main( int argc, char* args[])
 				enemy2.resetEnemy2();
 				enemy3.resetEnemy3();
 				character.resetCharacter();
-				
+				Mix_PlayMusic( gMusic, -1 );
 			
 				while( !quit)
 				{	
 					updateScoreAfterLoop(time, speedPlus, score);
-					if( Mix_PlayingMusic() == 0 )
-						{
-							//Play the music
-							Mix_PlayMusic( gMusic, -1 );
-						}
+					
+
+
 					while( SDL_PollEvent( &e ) != 0)
 					{
 						if(e.type == SDL_QUIT )

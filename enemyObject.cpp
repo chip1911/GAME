@@ -72,7 +72,7 @@ void enemy::moveE3(const int &speedPlus)
 
 	if(posX3 +  ENEMY_3_WIDTH < 0)
 	{
-		posX3 = rand() % (3000 + SCREEN_WIDTH) + (SCREEN_WIDTH + 1500) ;
+		posX3 = rand() % (2500 + SCREEN_WIDTH) + (SCREEN_WIDTH + 1500) ;
 		posY3 = 318 ;
 	}
 
