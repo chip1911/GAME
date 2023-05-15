@@ -24,7 +24,7 @@ public:
 
 	void move(const int &speedPlus);
 
-	void moveE3(const int &speedPlus);
+	void moveE3();
 
 	void resetEnemy1();
 
@@ -56,7 +56,7 @@ private:
 	int posX2, posY2;
 
 	//ufo
-	double posX3;
+	int posX3;
 	int posY3;
 	
 

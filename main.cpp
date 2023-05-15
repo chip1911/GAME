@@ -417,7 +417,7 @@ int main( int argc, char* args[])
 					enemy2.renderE2(enemy2Texture, gRenderer, eCurrentClip);
 
 					
-					enemy3.moveE3(speedPlus);
+					enemy3.moveE3();
 					enemy3.renderE3(enemy3Texture, gRenderer);
 
 					//enemy3Texture.render(300, 315, gRenderer);

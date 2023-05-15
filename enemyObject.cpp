@@ -66,9 +66,9 @@ void enemy::move(const int &speedPlus)
 
 } 
 
-void enemy::moveE3(const int &speedPlus)
+void enemy::moveE3()
 {
-	posX3 -=  2*ENEMY_SPEED + speedPlus / 2;
+	posX3 -=  2*ENEMY_SPEED ;
 
 	if(posX3 +  ENEMY_3_WIDTH < 0)
 	{
