@@ -69,23 +69,4 @@ void enemy::resetEnemy2()
 	
 }
 
-// int enemy::getPosX1()
-// {
-// 	return posX1;
-// }
-
-// int enemy::getPosY1()
-// {
-// 	return posY1;
-// }
-
-// int enemy::getPosX2()
-// {
-// 	return posX2;
-// }
-
-// int enemy::getPosY2()
-// {
-// 	return posY2;
-// }
 
