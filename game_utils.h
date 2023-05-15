@@ -14,9 +14,12 @@ bool checkCollisionE1(Character character, SDL_Rect* characCurrentClip, enemy en
 
 bool checkCollisionE2(Character character, SDL_Rect* characCurrentClip, enemy enemy2, SDL_Rect* eCurrentClip);
 
+bool checkCollisionE3(Character character, SDL_Rect* characCurrentClip, enemy enemy3);
+
 bool checkEnemyCollision(Character character, 
 						 enemy enemy1, 
-					  	 enemy enemy2, 
+					  	 enemy enemy2,
+					  	 enemy enemy3, 
 						 SDL_Rect* characCurrentClip, 
 						 SDL_Rect* eCurrentClip);
 void drawWhenLose(LTexture gameOver, LTexture endSelectionText,SDL_Event *e,SDL_Renderer *gRenderer, bool &startGame);	

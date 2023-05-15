@@ -12,7 +12,7 @@ enemy::enemy()
 	 posY2 =  rand() % RANGE_FLY_Y + FLY_MAX_HEIGHT;
 
 	 posX3 = SCREEN_WIDTH + 3500;
-	 posY3 = 315 ;
+	 posY3 = 318 ;
 	 
 }
 
@@ -73,7 +73,7 @@ void enemy::moveE3(const int &speedPlus)
 	if(posX3 +  ENEMY_3_WIDTH < 0)
 	{
 		posX3 = rand() % (3000 + SCREEN_WIDTH) + (SCREEN_WIDTH + 1500) ;
-		posY3 = 315 ;
+		posY3 = 318 ;
 	}
 
 }
@@ -95,7 +95,7 @@ void enemy::resetEnemy2()
 void enemy::resetEnemy3()
 {
 	 posX3 = SCREEN_WIDTH + 3500;
-	 posY3 = posY3 = 315 ;
+	 posY3 = posY3 = 318 ;
 	
 }
 

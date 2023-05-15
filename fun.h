@@ -41,8 +41,8 @@ const int buttonPosY2 = 236;
 #define ENEMY_2_WIDTH 30
 #define ENEMY_2_HEIGHT 25
 
-#define ENEMY_3_WIDTH 110
-#define ENEMY_3_HEIGHT 45
+#define ENEMY_3_WIDTH 98
+#define ENEMY_3_HEIGHT 40
 
 #define TIME_LIMIT 900
 #define SPEED_INCREASEMENT 1

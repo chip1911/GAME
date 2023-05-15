@@ -433,7 +433,8 @@ int main( int argc, char* args[])
 
 					if(checkEnemyCollision(character, 
 						 enemy1, 
-					  	 enemy2, 
+					  	 enemy2,
+					  	 enemy3, 
 						 characCurrentClip, 
 						 eCurrentClip))
 					{

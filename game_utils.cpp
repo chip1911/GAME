@@ -51,7 +51,7 @@ bool checkCollisionE2(Character character, SDL_Rect* characCurrentClip, enemy en
 {
 	bool collide = false;
 
-	int leftA = character.getPosX() + 19; //14
+	int leftA = character.getPosX() + 17; 
     int rightA = character.getPosX() + characCurrentClip->w - 20 ;//20
     int topA = character.getPosY() + 12;
     int bottomA = character.getPosY() + characCurrentClip->h -15; //10
@@ -74,9 +74,35 @@ bool checkCollisionE2(Character character, SDL_Rect* characCurrentClip, enemy en
 	return collide;
 }
 
+bool checkCollisionE3(Character character, SDL_Rect* characCurrentClip, enemy enemy3)
+{
+
+	bool collide = false;
+
+	int leftA = character.getPosX() + 17 ;
+	int rightA = character.getPosX() + characCurrentClip->w - 20;
+	int topA = character.getPosY();
+	int bottomA = character.getPosY() + characCurrentClip->h - 15;
+
+	int leftB = enemy3.getPosX3() ;
+	int rightB = enemy3.getPosX3() + ENEMY_3_WIDTH - 10;
+	int topB = enemy3.getPosY3() + 10;
+	int bottomB = enemy3.getPosY3() + ENEMY_3_HEIGHT;
+	
+    if (rightA >= leftB && leftA  <= rightB)
+    {
+    	if(bottomA >= topB)
+    	{
+    		collide = true;
+    	}
+    }
+    return collide;
+}
+
 bool checkEnemyCollision(Character character, 
 						 enemy enemy1, 
-					  	 enemy enemy2, 
+					  	 enemy enemy2,
+					  	 enemy enemy3, 
 						 SDL_Rect* characCurrentClip, 
 						 SDL_Rect* eCurrentClip)
 {
@@ -89,6 +115,12 @@ bool checkEnemyCollision(Character character,
 	{
 		return true;
 	}
+
+	if(checkCollisionE3(character, characCurrentClip, enemy3))
+	{
+		return true;
+	}
+
 	return false;
 
 }
