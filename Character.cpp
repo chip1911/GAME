@@ -2,7 +2,7 @@
 
 Character::Character() 
 {
-	posX = 300;
+	posX = 200;
 	posY = charGround;
 
 	velY = 7;
@@ -54,7 +54,7 @@ void Character::render(LTexture characterTexture, SDL_Rect* currentClip, SDL_Ren
 }
 void Character::resetCharacter()
 {
-	posX = 300;
+	posX = 200;
 	posY = charGround;
 
 	status = ON_THE_GROUND;

@@ -20,11 +20,17 @@ public:
 
 	void renderE2(LTexture enemy2Texture, SDL_Renderer* gRenderer, SDL_Rect* currentClip);
 
+	void renderE3(LTexture enemy3Texture, SDL_Renderer* gRenderer);
+
 	void move(const int &speedPlus);
+
+	void moveE3(const int &speedPlus);
 
 	void resetEnemy1();
 
 	void resetEnemy2();
+
+	void resetEnemy3();
 
 	int getPosX1() {return posX1;}
 
@@ -33,6 +39,10 @@ public:
 	int getPosX2() {return posX2;}
 
 	int getPosY2() {return posY2;}
+
+	int getPosX3() {return posX3;}
+
+	int getPosY3() {return posY3;}
 
 
 	
@@ -44,6 +54,10 @@ private:
 
 	//fly
 	int posX2, posY2;
+
+	//ufo
+	double posX3;
+	int posY3;
 	
 
 };

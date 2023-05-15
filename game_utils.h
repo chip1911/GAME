@@ -5,7 +5,6 @@
 #include"enemyObject.h"
 #include"Character.h"
 #include"LTexture.h"
-#include"LTimer.h"
 
 void renderBackground(int& speed, LTexture backgroundTexture, SDL_Renderer* gRenderer);
 
@@ -22,9 +21,9 @@ bool checkEnemyCollision(Character character,
 						 SDL_Rect* eCurrentClip);
 void drawWhenLose(LTexture gameOver, LTexture endSelectionText,SDL_Event *e,SDL_Renderer *gRenderer, bool &startGame);	
 
-std::string getHighScore(std::string path);
+std::string getHighScore();
 
-void updateHighScore(std::string path, const int& score, const std::string& oldHighScore1);
+void updateHighScore( const int& score, const std::string& oldHighScore1);
 
 int updateScoreAfterLoop(int& time, int& speedPlus, int& score);
 

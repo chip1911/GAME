@@ -10,6 +10,9 @@ enemy::enemy()
 	//fly
 	 posX2 = 1100; 
 	 posY2 =  rand() % RANGE_FLY_Y + FLY_MAX_HEIGHT;
+
+	 posX3 = SCREEN_WIDTH + 3500;
+	 posY3 = 315 ;
 	 
 }
 
@@ -22,7 +25,8 @@ enemy::~enemy()
 	posX2 = 0;
 	posY2 = 0;
 	
-
+	posX3 = 0;
+	posY3 = 0;
 
 }
 
@@ -36,10 +40,16 @@ void enemy::renderE2(LTexture enemy2Texture, SDL_Renderer* gRenderer, SDL_Rect* 
 	enemy2Texture.render(posX2, posY2, gRenderer,currentClip );
 }
 
+void enemy::renderE3(LTexture enemy3Texture, SDL_Renderer* gRenderer)
+{
+	enemy3Texture.render(posX3, posY3, gRenderer);
+}
+
 void enemy::move(const int &speedPlus)
 {
 	posX1 -=  (ENEMY_SPEED + speedPlus);
 	posX2 -=  (ENEMY_SPEED + speedPlus);
+	
 
 	if(posX1 + ENEMY_1_WIDTH < 0 )
 	{
@@ -52,8 +62,21 @@ void enemy::move(const int &speedPlus)
 		posY2 =  rand() % RANGE_FLY_Y + FLY_MAX_HEIGHT ;
 	}
 
+	
 
 } 
+
+void enemy::moveE3(const int &speedPlus)
+{
+	posX3 -=  2*ENEMY_SPEED + speedPlus / 2;
+
+	if(posX3 +  ENEMY_3_WIDTH < 0)
+	{
+		posX3 = rand() % (3000 + SCREEN_WIDTH) + (SCREEN_WIDTH + 1500) ;
+		posY3 = 315 ;
+	}
+
+}
 
 void enemy::resetEnemy1()
 {
@@ -66,6 +89,13 @@ void enemy::resetEnemy2()
 {
 	posX2 = 1100; 
 	posY2 =  rand() % RANGE_FLY_Y + FLY_MAX_HEIGHT;
+	
+}
+
+void enemy::resetEnemy3()
+{
+	 posX3 = SCREEN_WIDTH + 3500;
+	 posY3 = posY3 = 315 ;
 	
 }
 

@@ -131,18 +131,18 @@ void drawWhenLose(LTexture gameOver,LTexture endSelectionText, SDL_Event *e, SDL
 }						 
 
 
-std::string getHighScore(std::string path)
+std::string getHighScore()
 {
 	std::ifstream input;
 	std::string highScore;
 
-	input.open(path);
+	input.open("best_score.txt");
 	input >> highScore;
 
 	return highScore;
 }
 
-void updateHighScore(std::string path, const int& score, const std::string& oldHighScoreStringType)
+void updateHighScore( const int& score, const std::string& oldHighScoreStringType)
 {
 	int oldHighScore = 0;
 
@@ -150,9 +150,9 @@ void updateHighScore(std::string path, const int& score, const std::string& oldH
 	std::string newHighScore;
 	std::stringstream temp(oldHighScoreStringType);
 
-	output.open(path);
+	output.open("best_score.txt");
 
-	temp  >> oldHighScore; // chuyen oldHighScore1 sang int 
+	temp  >> oldHighScore; // chuyen  sang int 
 	if(score > oldHighScore)
 	{
 		oldHighScore = score;

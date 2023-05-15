@@ -21,6 +21,7 @@ LTexture groundTexture;
 LTexture characterTexture;
 LTexture enemy1Texture;
 LTexture enemy2Texture;//fly
+LTexture enemy3Texture; //ufo
 LTexture gameOverText;
 LTexture endSelectionText;
 LTexture gScore;
@@ -40,6 +41,7 @@ SDL_Rect characterClips[ RUN_FRAMES ];
 Character character;
 enemy enemy1;
 enemy enemy2;
+enemy enemy3;
 
 const std::string WINDOW_TITLE = "DINO GAME";
 
@@ -186,6 +188,12 @@ bool loadMedia()
 		
 	}
 
+	if( !enemy3Texture.loadFromFile( "img/ufo.png" , gRenderer) )
+	{
+		std::cout << "Failed to load image!\n" ;
+		success = false;
+	}
+
 	if( !groundTexture.loadFromFile( "img/ground.png", gRenderer ) )
 	{
 		std::cout << "Failed to load image!\n" ;
@@ -268,6 +276,7 @@ void close()
 	characterTexture.free();
 	enemy1Texture.free();
 	enemy2Texture.free();
+	enemy3Texture.free();
 	gameOverText.free();
 	endSelectionText.free();
 	gScore.free();
@@ -348,9 +357,10 @@ int main( int argc, char* args[])
 				int time = 0;
 				int score = 0;
 				int speedPlus = 0;
-				std::string highScore = getHighScore("best_score.txt");
+				std::string highScore = getHighScore();
 				enemy1.resetEnemy1();
 				enemy2.resetEnemy2();
+				enemy3.resetEnemy3();
 				character.resetCharacter();
 				
 			
@@ -397,6 +407,11 @@ int main( int argc, char* args[])
 					enemy2.move(speedPlus);
 					enemy2.renderE2(enemy2Texture, gRenderer, eCurrentClip);
 
+					
+					enemy3.moveE3(speedPlus);
+					enemy3.renderE3(enemy3Texture, gRenderer);
+
+					//enemy3Texture.render(300, 315, gRenderer);
 					character.move();
 					SDL_Rect* characCurrentClip = &characterClips[ frame / 4];
 
@@ -424,7 +439,7 @@ int main( int argc, char* args[])
 					{
 						
 						
-						updateHighScore("best_score.txt", score, highScore);
+						updateHighScore( score, highScore);
 						Mix_HaltMusic();
 						Mix_PlayChannel(-1, gGameOver, 0);
 						quit = true;
