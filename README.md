@@ -18,7 +18,7 @@ Dưới đây là 1 số đề xuất của mình, rất mong nhận được s�
 * Nâng cấp đồ họa thêm sinh động hơn
 * Thêm các level khác nhau
 * Menu có thêm nhiều chức năng hơn điều chỉnh âm lượng, có bảng xếp hảng điểm của người chơi,...
-* Thêm chức năng tiêu diệt chướng ngại vât và ăn xu 
+* Thêm chức năng tiêu diệt chướng ngại vật và ăn xu 
 ## Các tài liệu tham khảo
 * Mình đã học SDL2.0 từ trang :https://lazyfoo.net/tutorials/SDL/index.php
 * Hình ảnh và đồ họa : https://opengameart.org/content/library-of-2d-game-art , https://www.pngfind.com/mpng/hiRbJwm_ufo-all-ufo-pixel-art-png-transparent-png/ , 
